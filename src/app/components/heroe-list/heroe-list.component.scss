@@ -20,53 +20,103 @@
   gap: 50px;
   place-items: center;
   margin-top: 1rem;
-  @media (min-width: $breakpoint-ipad) {
-    grid-template-columns: repeat(1, 1fr);
-  }
-
-  @media (min-width: $breakpoint-pc) {
-    grid-template-columns: repeat(3, 1fr);
-  }
+  padding: 0 1rem;
 }
 
 .character-card {
-  background-color: white;
+  border:1px solid black;
   color: var(--textcolor);
-  display: flex;
-  height: 350px;
-  padding: 1rem;
-  width: 450px;
-  .left-content {
-    position: relative;
-    min-width: 50%;
-    .character-image {
-      border-radius: 50%;
-      box-shadow: 3px 2px 10px black;
-      height: 200px;
-      left: -15%;
-      position: absolute;
-      top: -8%;
-      width: 200px;
+  height: 450px;
+  width: 100%;
+  .card-body {
+    display: flex;
+    min-height: 60%;
+    flex-direction: row;
+    .left-content {
+      position: relative;
+      min-width: 45%;
+      .character-image {
+        border-radius: 50%;
+        box-shadow: 3px 2px 10px black;
+        left: -10%;
+        position: absolute;
+        top: -5%;
+        width: 9rem;
+        height: 9rem;
+        @media (min-width: $breakpoint-ipad) {
+          width: 12rem;
+          height: 12rem;
+        }
+      }
+    }
+    .right-content {
+      min-width: calc(55% - 1rem);
+      padding: 0 0.5rem;
+      @media (min-width: $breakpoint-ipad) {
+        padding-left: 0;
+      }
+      @media (min-width: $breakpoint-ipad) {
+        min-width: 50%;
+      }
+      .header {
+        position: relative;
+        min-height: 10%;
+        .name {
+          position: absolute;
+          top: -70%;
+          font-weight: bold;
+          font-size: var(--fontsize-md);
+          color: var(--main-title);
+          width: 100%;
+        }
+      }
+      .info {
+        width: 100%;
+        font-size: var(--fontsize-sm);
+        padding-top: 0.5rem;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 10;
+        -webkit-box-orient: vertical;
+        p {
+          margin: 0;
+        }
+      }
+      button {
+        background: red;
+        color: white;
+        padding: 0.5rem;
+        border: 0;
+        margin-top: 0.5rem;
+        position: relative;
+        bottom: 0%;
+        cursor: pointer;
+        &:hover {
+          background-color: #aa1518;
+          transform: scale(1.2);
+          transition: 0.5s;
+        }
+      }
     }
   }
 
-  .right-content {
-    min-width: 50%;
-    .header {
-      position: relative;
-      min-height: 10%;
-      .name {
-        position: absolute;
-        top: -110%;
-        font-weight: bold;
-        font-size: var(--fontsize-lg);
-        color: var(--main-title);
-        width: 100%;
-      }
+  .card-footer {
+    width: calc(100% - 1rem);
+    display: flex;
+    flex-direction: column;
+    padding: 0 0.5rem;
+    .title {
+      padding: 0.5rem 0;
+      color: var(--main-title);
+      font-weight: bold;
     }
-    .info {
+    .comics {
+      font-size: var(--fontsize-sm);
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 5px;
       overflow: hidden;
-      max-height: 80%;
     }
   }
 }
@@ -93,4 +143,23 @@
 }
 
 @media (min-width: $breakpoint-ipad) {
+  .heroe-list {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .character-card {
+    width: 450px;
+  }
+
+  .name {
+    font-size: var(--fontsize-lg);
+  }
+}
+
+@media (min-width: $breakpoint-pc) {
+  .heroe-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .character-card {
+    width: 450px;
+  }
 }

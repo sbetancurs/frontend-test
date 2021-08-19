@@ -26,7 +26,7 @@ nav {
   }
 
   .searchInput {
-    height: 40px;
+    height: 25px;
     font-size: var(--font-size-lg);
     width: 100%;
     padding:.5rem;
@@ -54,7 +54,7 @@ nav {
 @media (min-width: $breakpoint-pc) {
   nav {
     flex-direction: row;
-    height: 80px;
+    height: 70px;
   }
   .search {
     margin-top: 0;

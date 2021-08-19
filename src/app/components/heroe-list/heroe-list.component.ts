@@ -18,5 +18,6 @@ export class HeroeListComponent implements OnInit {
     this.client
       .getAll()
       .subscribe((response) => (this.characters = response.data.results));
+    console.log(this.characters);
   }
 }

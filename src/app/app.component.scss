@@ -7,7 +7,6 @@
 
 .heroes-list {
   width: 100%;
-  padding: 0 2rem;
 }
 
 .favorites {
@@ -29,16 +28,10 @@ footer {
   .content {
     min-height: calc(100vh - 160px);
   }
-  .favorites {
-    display: block;
-  }
 }
 
 @media (min-width: $breakpoint-pc) {
   .content {
     min-height: calc(100vh - 160px);
-  }
-  .favorites {
-    display: block;
   }
 }
