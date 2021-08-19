@@ -1,0 +1,29 @@
+nav {
+  align-items: center;
+  background-color: var(--bg-secondary);
+  color: var(--main-title);
+  display: flex;
+  height: var(--nav-height);
+  justify-content: space-between;
+  padding:1rem 1.5rem;
+
+  .logoContainter{
+    background-color: white;
+    height: 100%;
+  }
+
+  .logo{
+      height: 100%;
+  }
+
+  .searchInput{
+      height: 70%;
+      font-size: var(--font-size-lg);
+      width: 700px;
+  }
+
+  .searchLogo{
+      position: relative;
+      right:15%;
+  }
+}
