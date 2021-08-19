@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "marvel-comics-app"
+    }
+  },
+  "defaultProject": "marvel-comics-app",
+  "cli": {
+    "analytics": false
+  }
 }

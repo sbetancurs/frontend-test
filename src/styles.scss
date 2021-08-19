@@ -1,1 +1,18 @@
-/* You can add global styles to this file, and also import other style files */
+:root{
+    --bg-primary: #f4f4f4;
+    --bg-secondary: #2d2727;
+    --main-title: #473d3c;
+    --textcolor: #958c8c;
+    --fontsize-sm: 1rem;
+    --fontsize-md: 1.5rem;
+    --fontsize-lg: 2rem;
+    --fontsize-xl: 2.5rem;
+    --nav-height: 60px;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--textcolor);
+  font-size: var(--fontsize-md);
+  margin: 0;
+}/* You can add global styles to this file, and also import other style files */
