@@ -1,29 +1,63 @@
+@import "../../styles/utilities.scss";
+
 nav {
+  flex-direction: column;
   align-items: center;
   background-color: var(--bg-secondary);
   color: var(--main-title);
   display: flex;
-  height: var(--nav-height);
+  height: 170px;
   justify-content: space-between;
-  padding:1rem 1.5rem;
+  padding: 1rem 1.5rem;
 
-  .logoContainter{
+  .logoContainter {
     background-color: white;
+    height: 70px;
+  }
+
+  .logo {
     height: 100%;
   }
 
-  .logo{
-      height: 100%;
+  .search {
+    display: flex;
+    margin-top: 1rem;
+    position: relative;
   }
 
-  .searchInput{
-      height: 70%;
-      font-size: var(--font-size-lg);
-      width: 700px;
+  .searchInput {
+    height: 40px;
+    font-size: var(--font-size-lg);
+    width: 100%;
+    padding:.5rem;
+      border-radius: 5px;
+      outline:none;
   }
 
-  .searchLogo{
-      position: relative;
-      right:15%;
+  .searchLogo {
+    position: absolute;
+    right: 0%;
+    bottom: 15%;
+  }
+}
+
+@media (min-width: $breakpoint-ipad) {
+  nav {
+    flex-direction: row;
+    height: 80px;
+  }
+  .search {
+    margin-top: 0;
+  }
+}
+
+@media (min-width: $breakpoint-pc) {
+  nav {
+    flex-direction: row;
+    height: 80px;
+  }
+  .search {
+    margin-top: 0;
+    width:700px;
   }
 }
