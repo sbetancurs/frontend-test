@@ -26,9 +26,16 @@ export class CharacterService {
 
   constructor(private http: HttpClient, private route: Router) {}
 
-  public getAll(): Observable<ApiResponse> {
-    return this.http.get<ApiResponse>(
-      `${url}/characters?ts=${this.ts}&apikey=${this.apiKey}&hash=${this.hash}`
-    );
+  public getAll(
+    offset: number,
+    limit: number = 10,
+    search: string = '',
+    orderBy: string = ''
+  ): Observable<ApiResponse> {
+    let query = `${this.ts}&apikey=${this.apiKey}&hash=${this.hash}&limit=${limit}&offset=${offset}`;
+    query += search !== '' ? `&nameStartsWith=${search.toLowerCase()}` : '';
+    query += orderBy !== '' ? `&orderBy=${orderBy}` : '';
+
+    return this.http.get<ApiResponse>(`${url}/characters?ts=${query}`);
   }
 }

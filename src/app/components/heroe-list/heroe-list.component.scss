@@ -24,13 +24,13 @@
 }
 
 .character-card {
-  border:1px solid black;
+  background-color: white;
   color: var(--textcolor);
   height: 450px;
   width: 100%;
   .card-body {
     display: flex;
-    min-height: 60%;
+    min-height: 65%;
     flex-direction: row;
     .left-content {
       position: relative;
@@ -60,40 +60,37 @@
       }
       .header {
         position: relative;
-        min-height: 10%;
+        min-height: 20%;
         .name {
           position: absolute;
-          top: -70%;
+          top: -30%;
           font-weight: bold;
           font-size: var(--fontsize-md);
           color: var(--main-title);
           width: 100%;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          display: -webkit-box;
+          -webkit-line-clamp: 3;
+          -webkit-box-orient: vertical;
         }
       }
       .info {
         width: 100%;
         font-size: var(--fontsize-sm);
-        padding-top: 0.5rem;
         overflow: hidden;
         text-overflow: ellipsis;
         display: -webkit-box;
         -webkit-line-clamp: 10;
         -webkit-box-orient: vertical;
+        min-height: 65%;
         p {
           margin: 0;
         }
       }
       button {
-        background: red;
-        color: white;
-        padding: 0.5rem;
-        border: 0;
         margin-top: 0.5rem;
-        position: relative;
-        bottom: 0%;
-        cursor: pointer;
         &:hover {
-          background-color: #aa1518;
           transform: scale(1.2);
           transition: 0.5s;
         }
@@ -135,10 +132,19 @@
       color: white;
       padding: 1rem;
       margin-right: 0.5rem;
+      cursor: pointer;
+      &:hover {
+        transform: scale(1.1);
+        transition: 0.3s;
+        background-color:#484848
+      }
       &:last-child {
         margin-right: 0;
       }
     }
+    .nohover{
+        pointer-events: none;
+      }
   }
 }
 
