@@ -5,6 +5,7 @@ import { CharacterService } from '@services/character.service';
 
 import { Character } from '@models/character';
 
+import { ModalService } from '../modal';
 @Component({
   selector: 'app-heroe-list',
   templateUrl: './heroe-list.component.html',
@@ -22,7 +23,8 @@ export class HeroeListComponent implements OnInit {
   constructor(
     private client: CharacterService,
     private activeRoute: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private modalService: ModalService
   ) {
     this.activeRoute.queryParams.subscribe(({ search, orderBy }) => {
       if (search || orderBy || search === '' || orderBy === '') {
@@ -81,4 +83,12 @@ export class HeroeListComponent implements OnInit {
 
     this.getCharacters();
   };
+
+  openModal(id: string) {
+    this.modalService.open(id);
+  }
+
+  closeModal(id: string) {
+    this.modalService.close(id);
+  }
 }
