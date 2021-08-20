@@ -8,6 +8,7 @@ import { HeroeDetailsComponent } from './components/heroe-details/heroe-details.
 import { HeroeCardComponent } from './components/heroe-card/heroe-card.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { HeroeListComponent } from './components/heroe-list/heroe-list.component';
+import { ModalModule } from './components/modal/';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,7 @@ import { HeroeListComponent } from './components/heroe-list/heroe-list.component
     NavbarComponent,
     HeroeListComponent,
   ],
-  imports: [BrowserModule, HttpClientModule, AppRoutingModule],
+  imports: [BrowserModule, HttpClientModule, ModalModule, AppRoutingModule],
   providers: [],
   bootstrap: [AppComponent],
 })
