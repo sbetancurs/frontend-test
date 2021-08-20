@@ -10,20 +10,14 @@ import { environment } from '../../environments/environment';
 import { ApiResponse } from '@models/apiResponse';
 
 const url = `${environment.api_url}`;
-const httpOptions = {
-  headers: new HttpHeaders({
-    'Content-Type': 'application/json',
-  }),
-};
+const ts = `${environment.ts}`;
+const apiKey = `${environment.apiKey}`;
+const hash = `${environment.hash}`;
 
 @Injectable({
   providedIn: 'root',
 })
 export class CharacterService {
-  ts: string = '1';
-  apiKey: string = '6bb9854020fa7555d8c6c1545351a182';
-  hash: string = '89f470afb7abf62cda7ccfd454067a8d';
-
   constructor(private http: HttpClient, private route: Router) {}
 
   public getAll(
@@ -32,7 +26,7 @@ export class CharacterService {
     search: string = '',
     orderBy: string = ''
   ): Observable<ApiResponse> {
-    let query = `${this.ts}&apikey=${this.apiKey}&hash=${this.hash}&limit=${limit}&offset=${offset}`;
+    let query = `${ts}&apikey=${apiKey}&hash=${hash}&limit=${limit}&offset=${offset}`;
     query += search !== '' ? `&nameStartsWith=${search.toLowerCase()}` : '';
     query += orderBy !== '' ? `&orderBy=${orderBy}` : '';
 

@@ -4,7 +4,10 @@
 
 export const environment = {
   production: false,
-  api_url: 'http://gateway.marvel.com/v1/public',
+  api_url: 'https://gateway.marvel.com/v1/public',
+  ts: '1',
+  apiKey: '6bb9854020fa7555d8c6c1545351a182',
+  hash: '89f470afb7abf62cda7ccfd454067a8d',
 };
 
 /*
