@@ -1,4 +1,37 @@
+@import "./styles/utilities.scss";
 .content {
   background-color: var(--bg-primary);
-  min-height: calc(100vh - var(--navbar-height));
+  min-height: calc(100vh - (170px + 80px));
+  display: flex;
+}
+
+.heroes-list {
+  width: 100%;
+}
+
+.favorites {
+  background-color: var(--bg-secondary);
+  width: 200px;
+
+  display: none;
+}
+
+footer {
+  align-items: center;
+  background-color: var(--bg-secondary);
+  display: flex;
+  height: 80px;
+  justify-content: center;
+}
+
+@media (min-width: $breakpoint-ipad) {
+  .content {
+    min-height: calc(100vh - 160px);
+  }
+}
+
+@media (min-width: $breakpoint-pc) {
+  .content {
+    min-height: calc(100vh - 160px);
+  }
 }

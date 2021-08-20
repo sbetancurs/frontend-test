@@ -1,6 +1,16 @@
 <nav>
   <div class="logoContainter">
-    <img class="logo" src="../assets/images/marvel.png" alt="Marvel logo">
+    <img class="logo" src="../assets/images/marvel.png" alt="Marvel logo" />
   </div>
-  <input class="searchInput" type="text" placeholder="Search character..."/><span class="searchLogo">🔍</span><span></span>
+    <form (submit)="searchFor($event)" class="search">
+      <input
+        class="searchInput"
+        type="text"
+        placeholder="Search character..."
+        [value]="search"
+        (change)="onItemChange($event.target.value)"
+      /><span class="searchLogo">🔍</span>
+      <button class="btn btn-search">search</button>
+    </form>
+  <span></span>
 </nav>
