@@ -4,13 +4,11 @@
   </div>
   <select
     name="select"
-    [value]="orderBy || ''"
+    [value]="orderBy"
     (change)="onSelectedItemChange($event.target.value)"
   >
-    <option value="" selected>Sort</option>
     <option value="name">↑ Name</option>
     <option value="modified">↑ Modified</option>
-    +
     <option value="-name">↓ Name</option>
     <option value="-modified">↓ Modified</option>
   </select>
@@ -20,8 +18,13 @@
   <app-heroe-card
     *ngFor="let character of characters"
     [character]="character"
-    (openModalEvent)='openModal($event)'
+    (openModalEvent)="openModal($event)"
   ></app-heroe-card>
+</div>
+<div class="alert">
+  <p *ngIf="characters.length === 0" class="alert-danger">
+    Oops! There is no any character that start with: <b>{{ search }}</b>
+  </p>
 </div>
 
 <div class="pagination">
