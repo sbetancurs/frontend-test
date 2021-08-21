@@ -33,10 +33,10 @@ nav {
       outline: none;
     }
 
-    .searchLogo {
+    .search-icon {
       position: absolute;
-      right: 13%;
-      bottom: 15%;
+      right: 27%;
+      bottom: 10%;
     }
 
     .btn-search {
@@ -52,6 +52,9 @@ nav {
     height: 100%;
     .search {
       margin-top: 0;
+      .search-icon {
+        right: 23%;
+      }
     }
     .right {
       width: 150px;
@@ -63,6 +66,9 @@ nav {
   nav {
     .search {
       width: 700px;
+      .search-icon {
+        right: 13%;
+      }
     }
   }
 }
