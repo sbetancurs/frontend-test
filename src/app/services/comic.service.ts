@@ -19,8 +19,10 @@ export class ComicService {
   constructor(private http: HttpClient, private route: Router) {}
 
   public getOne(comicUri: string): Observable<ApiResponse> {
-    let query = `ts=${ts}&apikey=${apiKey}&hash=${hash}&`;
+    const split = comicUri.split('/');
+    const comicId = split[split.length - 1];
+    const query = `ts=${ts}&apikey=${apiKey}&hash=${hash}&`;
 
-    return this.http.get<ApiResponse>(`${comicUri}?${query}`);
+    return this.http.get<ApiResponse>(`${url}/comics/${comicId}?${query}`);
   }
 }
