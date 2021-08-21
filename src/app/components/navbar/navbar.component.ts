@@ -32,4 +32,8 @@ export class NavbarComponent implements OnInit {
       queryParamsHandling: 'merge', // remove to replace all query params by provided
     });
   };
+
+  resetSearch = () => {
+    this.search = '';
+  };
 }

@@ -63,7 +63,7 @@ export class HeroeListComponent implements OnInit {
       .subscribe((response) => {
         this.characters = response.data.results;
         this.totalPages = Math.ceil(response.data.total / this.limit);
-        this.currentPage = this.totalPages > 1 ? this.totalPages : 0;
+        this.currentPage = this.totalPages > 0 ? this.currentPage : 0;
       });
   };
 

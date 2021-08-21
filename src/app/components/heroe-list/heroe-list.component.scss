@@ -23,16 +23,24 @@
   padding: 0 1rem;
 }
 
-.alert{
+select{
+  padding: 0.5rem 1rem;
+}
+
+.alert {
   display: grid;
   place-items: center;
-  .alert-danger{
-  background-color: #ffbbbd;
-  border-radius: 5px;
-  border:1px solid red;
-  padding: 1rem;
-  color: var(--main-title)
-}
+  padding: 0 1rem;
+  @media (min-width: $breakpoint-ipad) {
+    padding: 0;
+  }
+  .alert-danger {
+    background-color: #ffbbbd;
+    border-radius: 5px;
+    border: 1px solid red;
+    padding: 1rem;
+    color: var(--main-title);
+  }
 }
 
 .pagination {
@@ -53,15 +61,15 @@
       &:hover {
         transform: scale(1.1);
         transition: 0.3s;
-        background-color:#484848
+        background-color: #484848;
       }
       &:last-child {
         margin-right: 0;
       }
     }
-    .nohover{
-        pointer-events: none;
-      }
+    .nohover {
+      pointer-events: none;
+    }
   }
 }
 
