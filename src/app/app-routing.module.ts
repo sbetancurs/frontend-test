@@ -5,7 +5,7 @@ import { AppComponent } from './app.component';
 
 const routes: Routes = [
   {
-    path: 'characters',
+    path: 'home',
     component: AppComponent,
   },
 ];

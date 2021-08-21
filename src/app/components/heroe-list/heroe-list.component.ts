@@ -26,8 +26,9 @@ export class HeroeListComponent implements OnInit {
     private router: Router,
     private modalService: ModalService
   ) {
-    this.activeRoute.queryParams.subscribe(({ search, orderBy }) => {
-      if (search || orderBy || search === '' || orderBy === '') {
+    this.activeRoute.queryParams.subscribe((queryParams) => {
+      const { search, orderBy, all } = queryParams;
+      if (search || orderBy || search === '' || orderBy === '' || all) {
         this.currentPage = this.search === search ? this.currentPage : 1;
         this.offset = this.search === search ? this.offset : 0;
         this.search = search;
