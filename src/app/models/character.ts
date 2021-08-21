@@ -1,5 +1,3 @@
-import { ResourceList } from './ResourceList';
-
 export interface Character {
   id: number;
   name: string;
