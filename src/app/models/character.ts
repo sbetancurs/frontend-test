@@ -1,5 +1,5 @@
-import { Image } from '@models/Image';
-import { ResourceList } from '@models/ResourceList';
+import { Image } from './Image';
+import { ResourceList } from './ResourceList';
 export interface Character {
   id: number;
   name: string;
