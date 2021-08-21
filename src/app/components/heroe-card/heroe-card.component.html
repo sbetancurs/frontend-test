@@ -1,1 +1,26 @@
-<p>heroe-card works!</p>
+<div class="card-body">
+  <div class="left-content">
+    <img
+      class="character-image"
+      src="{{ character.thumbnail.path }}.{{ character.thumbnail.extension }}"
+      alt="{{ character.name }}"
+    />
+  </div>
+  <div class="right-content">
+    <div class="header">
+      <div class="name">{{ character.name }}</div>
+    </div>
+    <div class="info">
+      <p>{{ character.description }}</p>
+    </div>
+    <button (click)="openModal('custom-modal-1')" class="btn">VIEW MORE</button>
+  </div>
+</div>
+<div class="card-footer">
+  <div class="title">Related comics</div>
+  <div class="comics">
+    <div class="comic" *ngFor="let comic of character.comics.items.slice(0, 4)">
+      ▸{{ comic.name }}
+    </div>
+  </div>
+</div>

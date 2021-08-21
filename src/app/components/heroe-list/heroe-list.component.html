@@ -2,66 +2,50 @@
   <div class="title">
     <img src="../assets/icons/characters.png" alt="characters" /> Characters
   </div>
-  <select name="select" [value]="orderBy ||''" (change)="onSelectedItemChange($event.target.value)">
+  <select
+    name="select"
+    [value]="orderBy || ''"
+    (change)="onSelectedItemChange($event.target.value)"
+  >
     <option value="" selected>Sort</option>
-    <option value="name">↑ Name </option>
-    <option value="modified">↑ Modified </option>+
+    <option value="name">↑ Name</option>
+    <option value="modified">↑ Modified</option>
+    +
     <option value="-name">↓ Name</option>
     <option value="-modified">↓ Modified</option>
   </select>
 </div>
 
 <div class="heroe-list">
-  <div class="character-card" *ngFor="let character of characters">
-    <div class="card-body">
-      <div class="left-content">
-        <img
-          class="character-image"
-          src="{{ character.thumbnail.path }}.{{
-            character.thumbnail.extension
-          }}"
-          alt="{{ character.name }}"
-        />
-      </div>
-      <div class="right-content">
-        <div class="header">
-          <div class="name">{{ character.name }}</div>
-        </div>
-        <div class="info">
-          <p>{{ character.description }}</p>
-        </div>
-        <button (click)="openModal('custom-modal-1')" class="btn">VIEW MORE</button>
-      </div>
-    </div>
-    <div class="card-footer">
-      <div class="title">Related comics</div>
-      <div class="comics">
-        <div
-          class="comic"
-          *ngFor="let comic of character.comics.items.slice(0, 4)"
-        >
-          ▸{{ comic.name }}
-        </div>
-      </div>
-    </div>
-  </div>
+  <app-heroe-card
+    *ngFor="let character of characters"
+    [character]="character"
+    (openModalEvent)='openModal($event)'
+  ></app-heroe-card>
 </div>
 
 <div class="pagination">
   <div class="pages">
-    <div class="number" (click)="getNextPage('prev')" *ngIf="currentPage > 1">{{ "<" }}</div>
-    <div class="number nohover">{{currentPage}}</div>
-    <!-- <div class="number" (click)="getCurrentPage(1)">1</div>
-    <div class="number" (click)="getCurrentPage(2)">2</div>
-    <div class="number" (click)="getCurrentPage(3)">3</div> -->
+    <div class="number" (click)="getNextPage('prev')" *ngIf="currentPage > 1">
+      {{ "<" }}
+    </div>
+    <div class="number nohover">{{ currentPage }}</div>
     <div class="number nohover">of</div>
-    <div class="number" (click)="getCurrentPage(totalPages)">{{totalPages}}</div>
-    <div class="number" (click)="getNextPage('next')" *ngIf="currentPage !== totalPages">{{ ">" }}</div>
+    <div class="number" (click)="getCurrentPage(totalPages)">
+      {{ totalPages }}
+    </div>
+    <div
+      class="number"
+      (click)="getNextPage('next')"
+      *ngIf="currentPage !== totalPages"
+    >
+      {{ ">" }}
+    </div>
   </div>
 </div>
 
 <app-modal id="custom-modal-1">
-    <h1>A Custom Modal!</h1>
-    <p>Home page text: </p>
-    <button (click)="closeModal('custom-modal-1');">Close</button>
+  <h1>A Custom Modal!</h1>
+  <p>Home page text:</p>
+  <button (click)="closeModal('custom-modal-1')">Close</button>
 </app-modal>
