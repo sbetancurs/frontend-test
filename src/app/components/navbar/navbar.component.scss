@@ -39,8 +39,9 @@ nav {
       bottom: 15%;
     }
 
-    .btn-search{
-      margin-left:0.5rem;border-radius: 5px;
+    .btn-search {
+      margin-left: 0.5rem;
+      border-radius: 5px;
     }
   }
 }
@@ -48,20 +49,20 @@ nav {
 @media (min-width: $breakpoint-ipad) {
   nav {
     flex-direction: row;
-    height: 80px;
-  }
-  .search {
-    margin-top: 0;
+    height: 100%;
+    .search {
+      margin-top: 0;
+    }
+    .right {
+      width: 150px;
+    }
   }
 }
 
 @media (min-width: $breakpoint-pc) {
   nav {
-    flex-direction: row;
-    height: 70px;
-  }
-  .search {
-    margin-top: 0;
-    width: 700px;
+    .search {
+      width: 700px;
+    }
   }
 }

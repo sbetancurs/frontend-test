@@ -14,7 +14,7 @@ import { ModalService } from '../modal';
 export class HeroeListComponent implements OnInit {
   characters: Character[];
   offset: number = 0;
-  limit: number = 10;
+  limit: number = 1;
   totalPages: number = 0;
   currentPage: number = 1;
   search: string = '';
