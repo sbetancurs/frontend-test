@@ -91,6 +91,15 @@
       grid-template-columns: repeat(2, 1fr);
       gap: 5px;
       overflow: hidden;
+      a {
+        text-decoration: none;
+        color: var(--textcolor);
+
+        &:hover {
+          text-decoration: underline;
+          color: var(--main-title);
+        }
+      }
     }
   }
 }
