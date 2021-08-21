@@ -18,7 +18,7 @@ export class HeroeListComponent implements OnInit {
   totalPages: number = 0;
   currentPage: number = 1;
   search: string = '';
-  orderBy: string = '';
+  orderBy: string = 'name';
 
   constructor(
     private client: CharacterService,
@@ -26,8 +26,9 @@ export class HeroeListComponent implements OnInit {
     private router: Router,
     private modalService: ModalService
   ) {
-    this.activeRoute.queryParams.subscribe(({ search, orderBy }) => {
-      if (search || orderBy || search === '' || orderBy === '') {
+    this.activeRoute.queryParams.subscribe((queryParams) => {
+      const { search, orderBy, all } = queryParams;
+      if (search || orderBy || search === '' || orderBy === '' || all) {
         this.currentPage = this.search === search ? this.currentPage : 1;
         this.offset = this.search === search ? this.offset : 0;
         this.search = search;
@@ -62,6 +63,7 @@ export class HeroeListComponent implements OnInit {
       .subscribe((response) => {
         this.characters = response.data.results;
         this.totalPages = Math.ceil(response.data.total / this.limit);
+        this.currentPage = this.totalPages > 0 ? this.currentPage : 0;
       });
   };
 

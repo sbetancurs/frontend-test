@@ -1,6 +1,6 @@
 <nav>
   <div class="logoContainter">
-    <img class="logo" src="../assets/images/marvel.png" alt="Marvel logo" />
+    <a class="button" routerLink="/"  [queryParams]="{orderBy: 'name'}" (click)="resetSearch()"><img class="logo" src="../assets/images/marvel.png" alt="Marvel logo" /></a>
   </div>
     <form (submit)="searchFor($event)" class="search">
       <input
