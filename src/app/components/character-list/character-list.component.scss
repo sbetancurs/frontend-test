@@ -14,7 +14,7 @@
   align-items: center;
 }
 
-.heroe-list {
+.character-list {
   display: grid;
   grid-template-columns: repeat(1, 1fr);
   gap: 50px;
@@ -73,8 +73,20 @@ select{
   }
 }
 
+.modal-header{
+  display: flex;
+  justify-content: flex-end;
+  padding:0.5rem 0;
+  button{
+    border:none;
+    outline:none;
+    background: transparent;
+    cursor:pointer;
+  }
+}
+
 @media (min-width: $breakpoint-ipad) {
-  .heroe-list {
+  .character-list {
     grid-template-columns: repeat(1, 1fr);
   }
   .character-card {
@@ -87,7 +99,7 @@ select{
 }
 
 @media (min-width: $breakpoint-pc) {
-  .heroe-list {
+  .character-list {
     grid-template-columns: repeat(2, 1fr);
   }
   .character-card {

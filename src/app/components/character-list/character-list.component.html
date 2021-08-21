@@ -14,12 +14,12 @@
   </select>
 </div>
 
-<div class="heroe-list">
-  <app-heroe-card
+<div class="character-list">
+  <app-character-card
     *ngFor="let character of characters"
     [character]="character"
     (openModalEvent)="openModal($event)"
-  ></app-heroe-card>
+  ></app-character-card>
 </div>
 <div class="alert">
   <p *ngIf="characters.length === 0" class="alert-danger">
@@ -47,8 +47,10 @@
   </div>
 </div>
 
-<app-modal id="custom-modal-1">
-  <h1>A Custom Modal!</h1>
-  <p>Home page text:</p>
-  <button (click)="closeModal('custom-modal-1')">Close</button>
+<app-modal id="comic-modal">
+  <div class="modal-header">
+    <button (click)="closeModal('comic-modal')">
+      <img src="../assets/icons/btn-close.png" alt="close" />
+    </button>
+  </div>
 </app-modal>

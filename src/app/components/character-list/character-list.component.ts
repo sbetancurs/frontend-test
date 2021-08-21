@@ -7,12 +7,12 @@ import { Character } from '@models/character';
 
 import { ModalService } from '../modal';
 @Component({
-  selector: 'app-heroe-list',
-  templateUrl: './heroe-list.component.html',
-  styleUrls: ['./heroe-list.component.scss'],
+  selector: 'app-character-list',
+  templateUrl: './character-list.component.html',
+  styleUrls: ['./character-list.component.scss'],
 })
-export class HeroeListComponent implements OnInit {
-  characters: Character[];
+export class CharacterListComponent implements OnInit {
+  characters: Character[] = [];
   offset: number = 0;
   limit: number = 10;
   totalPages: number = 0;
@@ -86,8 +86,8 @@ export class HeroeListComponent implements OnInit {
     this.getCharacters();
   };
 
-  openModal(id: string) {
-    this.modalService.open(id);
+  openModal({ value, uri }) {
+    this.modalService.open(value, uri);
   }
 
   closeModal(id: string) {

@@ -1,50 +1,138 @@
-/* MODAL STYLES
--------------------------------*/
+@import "../../styles/utilities.scss";
+
 app-modal {
-    /* modals are hidden by default */
-    display: none;
+  display: none;
 
-    .modal {
-        /* modal container fixed across whole screen */
-        position: fixed;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
+  .modal {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+    overflow: auto;
 
-        /* z-index must be higher than .modal-background */
-        z-index: 1000;
-        
-        /* enables scrolling for tall modals */
-        overflow: auto;
+    .modal-body {
+      margin: 40px;
+      background: #fff;
+      height: 85%;
+      @media (min-width: $breakpoint-ipad) {
+        height: 50%;
+      }
 
-        .modal-body {
-            padding: 20px;
-            background: #fff;
+      @media (min-width: $breakpoint-pc) {
+        margin: 150px;
+      }
 
-            /* margin exposes part of the modal background */
-            margin: 40px;
+      .modal-content {
+        display: flex;
+        flex-direction: column;
+        padding: 0 20px;
+        min-height: 77%;
+        @media (min-width: $breakpoint-ipad) {
+          min-height: 76%;
+          flex-direction: row;
         }
-    }
 
-    .modal-background {
-        /* modal background fixed across whole screen */
-        position: fixed;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
+        @media (min-width: $breakpoint-pc) {
+          margin-bottom:1rem;
+        }
 
-        /* semi-transparent black  */
-        background-color: #000;
-        opacity: 0.75;
-        
-        /* z-index must be below .modal and above everything else  */
-        z-index: 900;
+        .img-comic {
+          height: 350px;
+          @media (min-width: $breakpoint-ipad) {
+            margin-right: 0.5rem;
+          }
+        }
+        .right-content {
+          padding: 0.5rem 0;
+          font-size: var(--fontsize-sm);
+          @media (min-width: $breakpoint-ipad) {
+            font-size: var(--fontsize-md);
+            padding: 0;
+          }
+          .comic-info {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+          }
+
+          .comic-title {
+            font-size: var(--fontsize-md);
+            color: var(--main-title);
+            font-weight: bold;
+            -webkit-line-clamp: 3;
+            @media (min-width: $breakpoint-ipad) {
+              font-size: var(--fontsize-lg);
+              margin-bottom: 0.5rem;
+            }
+          }
+          .comic-description {
+            -webkit-line-clamp: 8;
+            @media (min-width: $breakpoint-ipad) {
+              -webkit-line-clamp: 12;
+            }
+          }
+        }
+      }
+
+      .modal-footer {
+        display: flex;
+        flex-direction: column;
+        @media (min-width: $breakpoint-ipad) {
+          flex-direction: row;
+          justify-content: center;
+        }
+        .section {
+          display: flex;
+          align-items: center;
+          padding: 0.5rem;
+          width: 50%;
+          text-transform: uppercase;
+          font-weight: bold;
+          width: calc(100% - 1rem);
+          cursor:pointer;
+          font-size: var(--fontsize-sm);
+          @media (min-width: $breakpoint-ipad) {
+            justify-content: center;
+            padding: 1rem;
+            font-size: var(--fontsize-md);
+          }
+        }
+
+        .img {
+          margin-right: 0.5rem;
+        }
+
+        .add {
+          color: var(--main-title);
+          background: #f0f0f0;
+
+          &:hover{
+              background: #bfbfbf
+          }
+        }
+        .buy {
+          color: red;
+          background: #dcdcdc;
+        }
+      }
     }
+  }
+
+  .modal-background {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: #000;
+    opacity: 0.75;
+    z-index: 900;
+  }
 }
 
 body.modal-open {
-    /* body overflow is hidden to hide main scrollbar when modal window is open */
-    overflow: hidden;
+  overflow: hidden;
 }

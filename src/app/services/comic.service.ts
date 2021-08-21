@@ -12,23 +12,15 @@ const url = `${environment.api_url}`;
 const ts = `${environment.ts}`;
 const apiKey = `${environment.apiKey}`;
 const hash = `${environment.hash}`;
-
 @Injectable({
   providedIn: 'root',
 })
-export class CharacterService {
+export class ComicService {
   constructor(private http: HttpClient, private route: Router) {}
 
-  public getAll(
-    offset: number,
-    limit: number = 10,
-    search: string = '',
-    orderBy: string = ''
-  ): Observable<ApiResponse> {
-    let query = `ts=${ts}&apikey=${apiKey}&hash=${hash}&limit=${limit}&offset=${offset}`;
-    query += search !== '' ? `&nameStartsWith=${search.toLowerCase()}` : '';
-    query += orderBy !== '' ? `&orderBy=${orderBy}` : '';
+  public getOne(comicUri: string): Observable<ApiResponse> {
+    let query = `ts=${ts}&apikey=${apiKey}&hash=${hash}&`;
 
-    return this.http.get<ApiResponse>(`${url}/characters?${query}`);
+    return this.http.get<ApiResponse>(`${comicUri}?${query}`);
   }
 }
