@@ -1,4 +1,3 @@
-import { Image } from './Image';
 import { ResourceList } from './ResourceList';
 
 export interface Character {
@@ -12,5 +11,10 @@ export interface Character {
     path: string;
     extension: string;
   };
-  comics: ResourceList;
+  comics: {
+    available: number;
+    returned: number;
+    collectionURI: string;
+    items: [];
+  };
 }
