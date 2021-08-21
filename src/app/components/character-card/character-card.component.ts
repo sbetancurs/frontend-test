@@ -1,11 +1,11 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Character } from '@models/character';
 @Component({
-  selector: 'app-heroe-card',
-  templateUrl: './heroe-card.component.html',
-  styleUrls: ['./heroe-card.component.scss'],
+  selector: 'app-character-card',
+  templateUrl: './character-card.component.html',
+  styleUrls: ['./character-card.component.scss'],
 })
-export class HeroeCardComponent implements OnInit {
+export class CharacterCardComponent implements OnInit {
   @Input() character: Character;
   @Output() openModalEvent = new EventEmitter<string>();
 

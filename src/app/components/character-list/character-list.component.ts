@@ -7,11 +7,11 @@ import { Character } from '@models/character';
 
 import { ModalService } from '../modal';
 @Component({
-  selector: 'app-heroe-list',
-  templateUrl: './heroe-list.component.html',
-  styleUrls: ['./heroe-list.component.scss'],
+  selector: 'app-character-list',
+  templateUrl: './character-list.component.html',
+  styleUrls: ['./character-list.component.scss'],
 })
-export class HeroeListComponent implements OnInit {
+export class CharacterListComponent implements OnInit {
   characters: Character[];
   offset: number = 0;
   limit: number = 10;
