@@ -98,9 +98,15 @@ select{
   }
 }
 
-@media (min-width: $breakpoint-pc) {
+@media (min-width: $breakpoint-laptop) {
   .character-list {
     grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: $breakpoint-pc) {
+  .character-list {
+    grid-template-columns: repeat(3, 1fr);
   }
   .character-card {
     width: 450px;

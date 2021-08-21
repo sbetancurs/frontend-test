@@ -32,7 +32,7 @@ export class CharacterListComponent implements OnInit {
         this.currentPage = this.search === search ? this.currentPage : 1;
         this.offset = this.search === search ? this.offset : 0;
         this.search = search;
-        this.orderBy = orderBy;
+        this.orderBy = orderBy && orderBy !== '' ? orderBy : 'name';
         this.getCharacters();
       }
     });

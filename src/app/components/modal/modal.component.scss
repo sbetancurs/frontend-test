@@ -35,7 +35,7 @@ app-modal {
         }
 
         @media (min-width: $breakpoint-pc) {
-          margin-bottom:1rem;
+          margin-bottom: 1rem;
         }
 
         .img-comic {
@@ -92,13 +92,22 @@ app-modal {
           text-transform: uppercase;
           font-weight: bold;
           width: calc(100% - 1rem);
-          cursor:pointer;
+          border: none;
+          outline: none;
+          cursor: pointer;
           font-size: var(--fontsize-sm);
           @media (min-width: $breakpoint-ipad) {
             justify-content: center;
             padding: 1rem;
             font-size: var(--fontsize-md);
           }
+        }
+
+        .in-favs {
+          background: #322827 !important;
+          color: red !important;
+          pointer-events: none;
+          cursor: default;
         }
 
         .img {
@@ -109,8 +118,8 @@ app-modal {
           color: var(--main-title);
           background: #f0f0f0;
 
-          &:hover{
-              background: #bfbfbf
+          &:hover {
+            background: #bfbfbf;
           }
         }
         .buy {
