@@ -14,7 +14,7 @@ import { ModalService } from '../modal';
 export class HeroeListComponent implements OnInit {
   characters: Character[];
   offset: number = 0;
-  limit: number = 1;
+  limit: number = 10;
   totalPages: number = 0;
   currentPage: number = 1;
   search: string = '';
@@ -58,7 +58,7 @@ export class HeroeListComponent implements OnInit {
 
   getCharacters = () => {
     this.client
-      .getAll(this.offset, 10, this.search, this.orderBy)
+      .getAll(this.offset, this.limit, this.search, this.orderBy)
       .subscribe((response) => {
         this.characters = response.data.results;
         this.totalPages = Math.ceil(response.data.total / this.limit);
