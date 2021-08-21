@@ -7,14 +7,17 @@ import { Character } from '@models/character';
 })
 export class CharacterCardComponent implements OnInit {
   @Input() character: Character;
-  @Output() openModalEvent = new EventEmitter<string>();
+  @Output() openModalEvent = new EventEmitter<{}>();
 
   constructor() {}
 
   ngOnInit(): void {}
 
-  openModal(value: string) {
-    // this method emits the value of newItemEvent
-    this.openModalEvent.emit(value);
+  openModal(value: string, event: { preventDefault: () => void }, uri: string) {
+    event.preventDefault();
+    this.openModalEvent.emit({
+      value,
+      uri,
+    });
   }
 }

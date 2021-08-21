@@ -1,6 +1,30 @@
 <div class="modal">
-    <div class="modal-body">
-        <ng-content></ng-content>
+  <div class="modal-body">
+    <ng-content></ng-content>
+    <div class="modal-content">
+      <img
+        class="img-comic"
+        src="{{ comic.thumbnail.path }}.{{ comic.thumbnail.extension }}"
+        alt="{{ comic.title }}"
+      />
+      <div class="right-content">
+        <div class="comic-info comic-title">{{ comic.title }}</div>
+        <div class="comic-info comic-description">{{ comic.description }}</div>
+      </div>
     </div>
+    <div class="modal-footer">
+      <div class="section add">
+        <img class="img"
+          src="../assets/icons/btn-favourites-default.png"
+          alt="add to favourites"
+        />
+        Add to favourites
+      </div>
+      <div class="section buy">
+        <img class="img" src="../assets/icons/shopping-cart-primary.png" alt="buy for" />
+        Buy for ${{ comic.prices[0].price }}
+      </div>
+    </div>
+  </div>
 </div>
 <div class="modal-background"></div>

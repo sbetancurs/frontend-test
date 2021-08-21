@@ -6,8 +6,10 @@ import {
   OnInit,
   OnDestroy,
 } from '@angular/core';
-
+import { ComicService } from '@services/comic.service';
 import { ModalService } from './modal.service';
+
+import { Comic } from '@models/comic';
 
 @Component({
   selector: 'app-modal',
@@ -17,10 +19,27 @@ import { ModalService } from './modal.service';
 })
 export class ModalComponent implements OnInit, OnDestroy {
   @Input() id: string;
+  comicUri: string;
+  comic: Comic;
   private element: any;
 
-  constructor(private modalService: ModalService, private el: ElementRef) {
+  constructor(
+    private client: ComicService,
+    private modalService: ModalService,
+    private el: ElementRef
+  ) {
     this.element = el.nativeElement;
+    this.comic = {
+      id: 0,
+      title: '',
+      description: '',
+      resourceURI: '',
+      prices: [{ type: '', price: 3900 }],
+      thumbnail: {
+        path: '',
+        extension: '',
+      },
+    };
   }
 
   ngOnInit(): void {
@@ -44,6 +63,13 @@ export class ModalComponent implements OnInit, OnDestroy {
     this.modalService.add(this);
   }
 
+  getComicInfo = () => {
+    this.client.getOne(this.comicUri).subscribe((response) => {
+      //@ts-ignore
+      this.comic = response.data.results[0];
+    });
+  };
+
   // remove self from modal service when component is destroyed
   ngOnDestroy(): void {
     this.modalService.remove(this.id);
@@ -52,6 +78,7 @@ export class ModalComponent implements OnInit, OnDestroy {
 
   // open modal
   open(): void {
+    this.getComicInfo();
     this.element.style.display = 'block';
     document.body.classList.add('modal-open');
   }

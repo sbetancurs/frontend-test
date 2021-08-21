@@ -73,6 +73,18 @@ select{
   }
 }
 
+.modal-header{
+  display: flex;
+  justify-content: flex-end;
+  padding:0.5rem 0;
+  button{
+    border:none;
+    outline:none;
+    background: transparent;
+    cursor:pointer;
+  }
+}
+
 @media (min-width: $breakpoint-ipad) {
   .character-list {
     grid-template-columns: repeat(1, 1fr);

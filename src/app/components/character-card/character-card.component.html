@@ -13,14 +13,14 @@
     <div class="info">
       <p>{{ character.description }}</p>
     </div>
-    <button (click)="openModal('custom-modal-1')" class="btn">VIEW MORE</button>
+    <button class="btn">VIEW MORE</button>
   </div>
 </div>
 <div class="card-footer">
   <div class="title">Related comics</div>
   <div class="comics">
     <div class="comic" *ngFor="let comic of character.comics.items.slice(0, 4)">
-      ▸{{ comic.name }}
+      <a href="#" (click)="openModal('comic-modal', $event, comic.resourceURI)">▸{{ comic.name }}</a>
     </div>
   </div>
 </div>

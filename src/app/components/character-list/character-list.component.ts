@@ -12,7 +12,7 @@ import { ModalService } from '../modal';
   styleUrls: ['./character-list.component.scss'],
 })
 export class CharacterListComponent implements OnInit {
-  characters: Character[];
+  characters: Character[] = [];
   offset: number = 0;
   limit: number = 10;
   totalPages: number = 0;
@@ -86,8 +86,8 @@ export class CharacterListComponent implements OnInit {
     this.getCharacters();
   };
 
-  openModal(id: string) {
-    this.modalService.open(id);
+  openModal({ value, uri }) {
+    this.modalService.open(value, uri);
   }
 
   closeModal(id: string) {
