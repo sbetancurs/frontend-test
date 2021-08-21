@@ -55,14 +55,14 @@
       .info {
         width: 100%;
         font-size: var(--fontsize-sm);
-        overflow: hidden;
-        text-overflow: ellipsis;
-        display: -webkit-box;
-        -webkit-line-clamp: 10;
-        -webkit-box-orient: vertical;
         min-height: 65%;
         p {
           margin: 0;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          display: -webkit-box;
+          -webkit-line-clamp: 13;
+          -webkit-box-orient: vertical;
         }
       }
       button {
