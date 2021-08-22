@@ -105,9 +105,6 @@ select{
 }
 
 @media (min-width: $breakpoint-pc) {
-  .character-list {
-    grid-template-columns: repeat(3, 1fr);
-  }
   .character-card {
     width: 450px;
   }

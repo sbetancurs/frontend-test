@@ -10,6 +10,8 @@ import { CharacterCardComponent } from './components/character-card/character-ca
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { CharacterListComponent } from './components/character-list/character-list.component';
 import { ModalModule } from './components/modal/';
+import { FavouritesListComponent } from './components/favourites-list/favourites-list.component';
+import { NotificationService } from './services/index';
 
 @NgModule({
   declarations: [
@@ -18,9 +20,13 @@ import { ModalModule } from './components/modal/';
     CharacterCardComponent,
     NavbarComponent,
     CharacterListComponent,
+    FavouritesListComponent,
   ],
   imports: [BrowserModule, HttpClientModule, ModalModule, AppRoutingModule],
-  providers: [{ provide: APP_BASE_HREF, useValue: '/home' }],
+  providers: [
+    { provide: APP_BASE_HREF, useValue: '/home' },
+    NotificationService,
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

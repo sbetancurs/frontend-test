@@ -8,6 +8,7 @@ import {
 } from '@angular/core';
 import { ComicService } from '@services/comic.service';
 import { ModalService } from './modal.service';
+import { NotificationService } from '@services/index';
 
 import { Comic } from '@models/comic';
 
@@ -40,7 +41,8 @@ export class ModalComponent implements OnInit, OnDestroy {
   constructor(
     private client: ComicService,
     private modalService: ModalService,
-    private el: ElementRef
+    private el: ElementRef,
+    private notificationService: NotificationService
   ) {
     this.element = el.nativeElement;
     this.comic = this.initialValue;
@@ -96,9 +98,18 @@ export class ModalComponent implements OnInit, OnDestroy {
 
     if (!favs.some((x) => x.id === id)) {
       favs.push({ id, title, thumbnail });
+      this.isFav = true;
+      localStorage.setItem('favs', JSON.stringify(favs));
+      this.sendNotification();
     }
-
-    localStorage.setItem('favs', JSON.stringify(favs));
-    this.isFav = true;
   };
+
+  sendNotification(): void {
+    console.log('Favs updated');
+    this.notificationService.sendNotification('Favs updated');
+  }
+
+  clearNotification(): void {
+    this.notificationService.clearNotification();
+  }
 }

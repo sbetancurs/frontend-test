@@ -2,10 +2,15 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 
 import { CharacterService } from '@services/character.service';
+import { ComicService } from '@services/comic.service';
 
 import { Character } from '@models/character';
+import { Comic } from '@models/comic';
+
+import { forkJoin } from 'rxjs';
 
 import { ModalService } from '../modal';
+import { NotificationService } from '@services/index';
 @Component({
   selector: 'app-character-list',
   templateUrl: './character-list.component.html',
@@ -22,9 +27,11 @@ export class CharacterListComponent implements OnInit {
 
   constructor(
     private client: CharacterService,
+    private clientComic: ComicService,
     private activeRoute: ActivatedRoute,
     private router: Router,
-    private modalService: ModalService
+    private modalService: ModalService,
+    private notificationService: NotificationService
   ) {
     this.activeRoute.queryParams.subscribe((queryParams) => {
       const { search, orderBy, all } = queryParams;
@@ -92,5 +99,56 @@ export class CharacterListComponent implements OnInit {
 
   closeModal(id: string) {
     this.modalService.close(id);
+  }
+
+  addRandomToFavs = () => {
+    let i: number = 0;
+    const comics: string[] = [];
+    this.characters.forEach((x) => {
+      if (i >= 3) {
+        return;
+      }
+
+      x.comics.items.forEach((c: Comic) => {
+        if (i >= 3) {
+          return;
+        }
+
+        const favs = JSON.parse(localStorage.getItem('favs') || '[]');
+        const comicId = Number(this.clientComic.getComicId(c.resourceURI));
+        if (!favs.some((f) => f.id === comicId)) {
+          i += 1;
+          comics.push(c.resourceURI);
+        }
+      });
+    });
+
+    this.addSelectedToFavs(comics);
+  };
+
+  addSelectedToFavs = (comics: string[]) => {
+    const comic1 = this.clientComic.getOne(comics[0]);
+    const comic2 = this.clientComic.getOne(comics[1]);
+    const comic3 = this.clientComic.getOne(comics[2]);
+    const favs = JSON.parse(localStorage.getItem('favs') || '[]');
+    forkJoin([comic1, comic2, comic3]).subscribe((data) => {
+      data.forEach((x) => {
+        const { id, title, thumbnail } =
+          //@ts-ignore
+          x.data.results[0] || ({} as Comic);
+
+        favs.push({ id, title, thumbnail });
+        localStorage.setItem('favs', JSON.stringify(favs));
+        this.sendNotification();
+      });
+    });
+  };
+
+  sendNotification(): void {
+    this.notificationService.sendNotification('Favs updated');
+  }
+
+  clearNotification(): void {
+    this.notificationService.clearNotification();
   }
 }
