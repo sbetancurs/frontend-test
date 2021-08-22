@@ -13,13 +13,13 @@
       </div>
     </div>
     <div class="modal-footer">
-      <div class="section add">
+      <button class="section add" [ngClass]="{'in-favs': isFav}" (click)="addComicToFavs()">
         <img class="img"
-          src="../assets/icons/btn-favourites-default.png"
+          src="{{!isFav && '../assets/icons/btn-favourites-default.png' || '../assets/icons/btn-favourites-primary.png'}}"
           alt="add to favourites"
         />
-        Add to favourites
-      </div>
+        {{isFav? 'Added' : 'Add'}} to favourites
+      </button>
       <div class="section buy">
         <img class="img" src="../assets/icons/shopping-cart-primary.png" alt="buy for" />
         Buy for ${{ comic.prices[0].price }}

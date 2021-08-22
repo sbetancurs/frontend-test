@@ -26,8 +26,9 @@ body {
   border: 0;
   cursor: pointer;
   min-width: 80px;
+
+  border-radius: 5px;
   &:hover {
     background-color: #aa1518;
-    
   }
 }
