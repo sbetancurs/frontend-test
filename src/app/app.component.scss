@@ -3,6 +3,10 @@
   background-color: var(--bg-primary);
   min-height: calc(100vh - (170px + 80px));
   display: flex;
+  flex-direction: column;
+  @media (min-width: $breakpoint-ipad) {
+    flex-direction: row;
+  }
 }
 
 app-character-list {

@@ -5,13 +5,20 @@
   color: var(--main-title);
   font-weight: bold;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: space-between;
-}
+  @media (min-width: $breakpoint-laptop) {
+    flex-direction: row;
+  }
+  .title {
+    display: flex;
+    align-items: center;
+  }
 
-.title {
-  display: flex;
-  align-items: center;
+  .btn {
+    margin: 0.5rem 0;
+  }
 }
 
 .character-list {
@@ -23,7 +30,7 @@
   padding: 0 1rem;
 }
 
-select{
+select {
   padding: 0.5rem 1rem;
 }
 
@@ -73,15 +80,15 @@ select{
   }
 }
 
-.modal-header{
+.modal-header {
   display: flex;
   justify-content: flex-end;
-  padding:0.5rem 0;
-  button{
-    border:none;
-    outline:none;
+  padding: 0.5rem 0;
+  button {
+    border: none;
+    outline: none;
     background: transparent;
-    cursor:pointer;
+    cursor: pointer;
   }
 }
 
