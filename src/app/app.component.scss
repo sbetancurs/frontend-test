@@ -10,7 +10,13 @@
 }
 
 app-character-list {
-  width: 100%;
+  width: 90%;
+}
+
+app-favourites-list {
+  width: 10%;
+  padding: 3rem;
+  background: #ebebeb;
 }
 
 .favorites {

@@ -1,3 +1,16 @@
-<ul>
-    <li *ngFor="let fav of favs">{{fav.title}}</li>
-</ul>
+<div class="title">
+  <img
+    class="icon-favs"
+    src="../assets/icons/favourites.png"
+    alt="favourites"
+  />
+  <label>My favourites</label>
+</div>
+<div class="fav" *ngFor="let fav of favs">
+  <img
+    src="{{ fav.thumbnail.path }}.{{ fav.thumbnail.extension }}"
+    alt="{{ fav.title }}"
+  />
+  <img class="icon-remove" src="../assets/icons/btn-delete.png" alt="remove" />
+  <label title="{{ fav.title }}">{{ fav.title }}</label>
+</div>
