@@ -1,4 +1,4 @@
-@import "../../styles/utilities.scss";
+  @import "../../styles/utilities.scss";
 
 nav {
   flex-direction: column;
@@ -52,7 +52,7 @@ nav {
     .search {
       margin-top: 0;
       .search-icon {
-        right: 23%;
+        right: 24%;
       }
     }
     .right {
@@ -61,7 +61,7 @@ nav {
   }
 }
 
-@media (min-width: $breakpoint-pc) {
+@media (min-width: $breakpoint-laptop) {
   nav {
     .search {
       width: 700px;
