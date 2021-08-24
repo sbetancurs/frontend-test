@@ -1,0 +1,17 @@
+I worked this app with 2 layers model, due to the app is very simple and doesn't has to many logic.
+This app has client layer and service layer.
+In client layer We can find all visual components like:
+-Character-list.
+-Character-card.
+-Favourites-list.
+-Modal (for comic detail).
+-Navbar.
+
+
+In service layer We can find all http petitions(fetchs) and returned data. Also here We have the interfaces or models for 
+type the application with TypeScript.(I don't like use 'any' as type).
+
+Secondly the app meets the plus petitions. These were:
+-Aditional function (I made two: Sort and Posibility to remove comic from favourites list).
+-Response Application (Works in all common devices perfectly).
+-No frameworks or librarys for design (Just use CSS with preprocessor 'SCSS' due to It were the other plus petition).
