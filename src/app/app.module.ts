@@ -5,7 +5,6 @@ import { APP_BASE_HREF } from '@angular/common';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HeroeDetailsComponent } from './components/heroe-details/heroe-details.component';
 import { CharacterCardComponent } from './components/character-card/character-card.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { CharacterListComponent } from './components/character-list/character-list.component';
@@ -16,7 +15,6 @@ import { NotificationService } from './services/index';
 @NgModule({
   declarations: [
     AppComponent,
-    HeroeDetailsComponent,
     CharacterCardComponent,
     NavbarComponent,
     CharacterListComponent,

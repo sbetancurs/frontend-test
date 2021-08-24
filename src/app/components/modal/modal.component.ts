@@ -105,7 +105,6 @@ export class ModalComponent implements OnInit, OnDestroy {
   };
 
   sendNotification(): void {
-    console.log('Favs updated');
     this.notificationService.sendNotification('Favs updated');
   }
 

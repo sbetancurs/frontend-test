@@ -7,8 +7,6 @@ export class NotificationService {
   private subject = new Subject<any>();
 
   sendNotification(notification: string) {
-    console.log('noti');
-
     this.subject.next({ text: notification });
   }
 

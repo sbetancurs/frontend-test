@@ -104,6 +104,10 @@ export class CharacterListComponent implements OnInit {
   addRandomToFavs = () => {
     let i: number = 0;
     const comics: string[] = [];
+    if (this.characters.length === 0) {
+      return;
+    }
+
     this.characters.forEach((x) => {
       if (i >= 3) {
         return;

@@ -2,7 +2,9 @@
   <div class="title">
     <img src="../assets/icons/characters.png" alt="characters" /> Characters
   </div>
-  <button class="btn" (click)='addRandomToFavs()'>Add random to favourites list</button>
+  <button class="btn" (click)="addRandomToFavs()" *ngIf="characters.length > 0">
+    Add random to favourites list
+  </button>
   <select
     name="select"
     [value]="orderBy"
