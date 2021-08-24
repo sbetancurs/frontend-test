@@ -11,6 +11,6 @@
     src="{{ fav.thumbnail.path }}.{{ fav.thumbnail.extension }}"
     alt="{{ fav.title }}"
   />
-  <img class="icon-remove" src="../assets/icons/btn-delete.png" alt="remove" />
+  <img class="icon-remove" (click)="removeFav($event, fav.id)" src="../assets/icons/btn-delete.png" alt="remove" />
   <label title="{{ fav.title }}">{{ fav.title }}</label>
 </div>

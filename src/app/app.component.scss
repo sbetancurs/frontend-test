@@ -10,20 +10,35 @@
 }
 
 app-character-list {
-  width: 90%;
+  width: 100%;
+  @media (min-width: $breakpoint-ipad) {
+    width: 60%;
+    padding: 3rem;
+  }
+  @media (min-width: $breakpoint-laptop) {
+    width: 80%;
+  }
+  @media (min-width: $breakpoint-pc) {
+    width: 90%;
+  }
 }
 
 app-favourites-list {
-  width: 10%;
-  padding: 3rem;
+  width: calc(100% - 2rem);
+  padding: 1rem;
   background: #ebebeb;
-}
-
-.favorites {
-  background-color: var(--bg-secondary);
-  width: 200px;
-
-  display: none;
+  min-height: 300px;
+  @media (min-width: $breakpoint-ipad) {
+    width: 40%;
+    padding: 2rem;
+  }
+  @media (min-width: $breakpoint-laptop) {
+    width: 20%;
+  }
+  @media (min-width: $breakpoint-pc) {
+    width: 10%;
+    padding: 3rem;
+  }
 }
 
 footer {

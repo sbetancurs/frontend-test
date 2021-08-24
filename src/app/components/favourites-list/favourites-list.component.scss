@@ -1,3 +1,5 @@
+@import "../../styles/utilities.scss";
+
 .title {
   display: flex;
   align-items: center;
@@ -19,10 +21,13 @@
   justify-content: center;
   flex-direction: column;
   position: relative;
-  margin-top:1rem;
+  margin-top: 1rem;
   img {
-    width: 100%;
+    width: 80%;
     height: 250px;
+    @media (min-width: $breakpoint-ipad) {
+      width: 100%;
+    }
   }
   label {
     margin: 0;
@@ -39,8 +44,11 @@
     height: 40px;
     position: absolute;
     top: -5%;
-    left: -10%;
+    left: 5%;
     cursor: pointer;
+    @media (min-width: $breakpoint-ipad) {
+      left: -10%;
+    }
     &:hover {
       transform: scale(1.1);
       transition: 0.5s;

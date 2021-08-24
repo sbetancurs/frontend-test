@@ -20,7 +20,6 @@ export class FavouritesListComponent implements OnInit {
       .subscribe((notification) => {
         this.notification = notification;
         this.favs = JSON.parse(localStorage.getItem('favs') || '[]');
-        console.log(JSON.parse(localStorage.getItem('favs') || '[]'));
       });
   }
 
@@ -29,4 +28,12 @@ export class FavouritesListComponent implements OnInit {
   ngOnDestroy() {
     this.subscription.unsubscribe();
   }
+
+  removeFav = (event, id: string) => {
+    event.preventDefault();
+    const favs = JSON.parse(localStorage.getItem('favs') || '[]');
+    const newFavs = favs.filter((x) => x.id !== id);
+    localStorage.setItem('favs', JSON.stringify(newFavs));
+    this.favs = JSON.parse(localStorage.getItem('favs') || '[]');
+  };
 }
